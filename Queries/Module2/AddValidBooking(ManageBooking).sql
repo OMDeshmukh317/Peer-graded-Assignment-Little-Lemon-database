@@ -1,4 +1,5 @@
 -- honestly, to create a valid booking we need a customer, not only date and table no
+-- in lab this proc is called AddValidBooking, but in final submission - should be ManageBooking
 
 DELIMITER //
 
@@ -10,7 +11,7 @@ SELECT Id FROM Customer c
     LIMIT 1
 );
 
-CREATE PROCEDURE AddValidBooking(IN BookingDateTime DATETIME,
+CREATE PROCEDURE ManageBooking(IN BookingDateTime DATETIME,
 	IN TableNumber INT,
     IN ClientFirstName VARCHAR(100),
     IN ClientLastName VARCHAR(100),
@@ -48,5 +49,5 @@ END//
 
 DELIMITER ;
 
-CALL AddValidBooking("2023-11-02 21:00:00", 1, "Johanna", "Moore", 66677778);
+CALL ManageBooking("2023-11-02 21:00:00", 1, "Johanna", "Moore", 66677778);
 select * from customer;
